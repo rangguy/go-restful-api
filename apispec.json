@@ -61,8 +61,7 @@
                   "name": {
                     "type": "string"
                   }
-                },
-                "required": ["name"]
+                }
               }
             }
           }
@@ -70,6 +69,43 @@
         "responses": {
           "200": {
             "description": "Success Create Category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Category"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories/{categoryId}": {
+      "get":{
+        "tags": ["Category API"],
+        "summary": "Get Category by Id",
+        "description": "Get Category by Id",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "Category Id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success get category",
             "content": {
               "application/json": {
                 "schema": {
